@@ -21,7 +21,7 @@ const FacebookIcon = () => (
 
 export function SocialFeedSection() {
   return (
-    <section className="section-padding" style={{ backgroundColor: 'rgba(248, 250, 252, 0.85)' }}>
+    <section className="section-padding">
       <div className="container">
         
         {/* Header without redundant top buttons */}
@@ -117,7 +117,7 @@ export function SocialFeedSection() {
               </p>
 
               {/* Instagram Card Showcase */}
-              <div style={{ flex: 1, backgroundColor: 'var(--bg-subtle)', padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
+              <div style={{ flex: 1, backgroundColor: 'rgba(248, 250, 252, 0.8)', padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
                 <div style={{ width: '80px', height: '80px', backgroundColor: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.2rem', boxShadow: 'var(--shadow-sm)' }}>
                   <img
                     src="/urika-logo.png"

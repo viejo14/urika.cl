@@ -1,6 +1,6 @@
 /* ==========================================================================
    URIKA - ESCUELA DE CONDUCTORES PUERTO MONTT
-   Corporate Executive Styling with Custom Background Image & Sharp Square Geometry
+   Corporate Executive Styling with Transparent Background & Visible Hummingbird
    ========================================================================== */
 
 :root {
@@ -19,10 +19,10 @@
   --accent-success-soft: rgba(5, 150, 105, 0.08);
   
   /* Backgrounds */
-  --bg-page: #FFFFFF;
-  --bg-subtle: rgba(248, 250, 252, 0.92);
-  --bg-elevated: rgba(241, 245, 249, 0.95);
-  --bg-card: rgba(255, 255, 255, 0.96);
+  --bg-page: transparent;
+  --bg-subtle: transparent;
+  --bg-elevated: rgba(241, 245, 249, 0.8);
+  --bg-card: rgba(255, 255, 255, 0.88);
   
   /* Typography Colors */
   --text-main: #0F172A;           /* Anthracite */
@@ -33,7 +33,7 @@
   --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   
-  /* Ambient Soft Shadows (Zero Borders) */
+  /* Ambient Soft Shadows */
   --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
   --shadow-md: 0 10px 30px -5px rgba(15, 23, 42, 0.08);
   --shadow-lg: 0 20px 45px -10px rgba(15, 23, 42, 0.12);
@@ -44,7 +44,7 @@
   --transition-fast: all 0.2s var(--ease-smooth);
   --transition-normal: all 0.35s var(--ease-smooth);
   
-  /* STRICT GEOMETRY RULE: 100% SQUARE CORNERS (0 RADIUS) */
+  /* STRICT GEOMETRY RULE: 100% SQUARE CORNERS FOR CARDS/BUTTONS */
   --radius-sm: 0px;
   --radius-md: 0px;
   --radius-lg: 0px;
@@ -57,15 +57,15 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  border: 0 !important; /* STRICT RULE: 0 Borders */
-  border-radius: 0px !important; /* STRICT RULE: 100% Sharp Square Geometry */
+  border: 0 !important;
+  border-radius: 0px !important;
   outline: none;
 }
 
 html {
   scroll-behavior: smooth;
   font-family: var(--font-body);
-  background-color: var(--bg-page);
+  background-color: #FAFAFA;
   color: var(--text-main);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -74,9 +74,8 @@ html {
 body {
   overflow-x: hidden;
   width: 100%;
-  /* Background Image Scaled via Contain so the Hummingbird is 100% Visible & Not Cropped */
-  background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(248, 250, 252, 0.92)), url('/images/img_fondo.png') no-repeat right 5% top 120px fixed;
-  background-size: 550px auto;
+  background: linear-gradient(rgba(255, 255, 255, 0.82), rgba(248, 250, 252, 0.85)), url('/images/img_fondo.png') no-repeat right 5% top 450px fixed;
+  background-size: 650px auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -113,17 +112,17 @@ button, input, select, textarea {
 }
 
 .glass-nav {
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 1px 15px rgba(15, 23, 42, 0.05);
 }
 
-/* Executive Cards - 100% Sharp Square Corners & 0 Borders */
+/* Executive Cards - Translucent Glass for Background Hummingbird Visibility */
 .clean-card {
-  background-color: var(--bg-card);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-radius: 0px !important;
   box-shadow: var(--shadow-md);
   transition: var(--transition-normal);
@@ -134,19 +133,20 @@ button, input, select, textarea {
 .clean-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
+  background-color: rgba(255, 255, 255, 0.96);
 }
 
 .clean-card-subtle {
-  background-color: var(--bg-subtle);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background-color: rgba(248, 250, 252, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 0px !important;
   padding: 2.5rem;
   transition: var(--transition-normal);
 }
 
 .clean-card-subtle:hover {
-  background-color: var(--bg-elevated);
+  background-color: rgba(241, 245, 249, 0.95);
   transform: translateY(-2px);
 }
 
@@ -180,7 +180,7 @@ button, input, select, textarea {
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  background-color: var(--bg-elevated);
+  background-color: rgba(241, 245, 249, 0.9);
   color: var(--primary-dark);
   font-family: var(--font-heading);
   font-weight: 600;
@@ -213,7 +213,7 @@ button, input, select, textarea {
 }
 
 .btn-ghost:hover {
-  background-color: var(--bg-subtle);
+  background-color: rgba(248, 250, 252, 0.8);
 }
 
 /* Executive Badges */
@@ -229,28 +229,28 @@ button, input, select, textarea {
 }
 
 .badge-slate, .badge-gold, .badge-orange, .badge-violet {
-  background-color: var(--bg-elevated);
+  background-color: rgba(241, 245, 249, 0.9);
   color: var(--primary-dark);
 }
 
 .badge-corporate {
-  background-color: var(--accent-corporate-soft);
+  background-color: rgba(2, 132, 199, 0.12);
   color: var(--accent-corporate-dark);
 }
 
 .badge-green {
-  background-color: var(--accent-success-soft);
+  background-color: rgba(5, 150, 105, 0.12);
   color: var(--accent-success);
 }
 
-/* Sections */
+/* Sections with Transparency */
 .section-padding {
   padding: 6rem 0;
+  background-color: transparent;
 }
 
 .section-bg-subtle {
-  background-color: rgba(248, 250, 252, 0.85);
-  backdrop-filter: blur(6px);
+  background-color: transparent !important;
 }
 
 /* Grids */
@@ -287,33 +287,48 @@ button, input, select, textarea {
   }
 }
 
-/* Official WhatsApp Floating Widget */
-.whatsapp-float {
+/* Official Circular Floating WhatsApp Widget with Pulsing Animation Effect */
+.whatsapp-float-round {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
   background-color: #25D366 !important;
   color: #FFFFFF !important;
-  width: 58px;
-  height: 58px;
-  border-radius: 0px !important;
+  width: 60px;
+  height: 60px;
+  border-radius: 50% !important; /* Circular as requested */
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45) !important;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45) !important;
   z-index: 999;
-  transition: var(--transition-fast);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
+  animation: whatsapp-pulse 2.2s infinite;
 }
 
-.whatsapp-float:hover {
-  transform: scale(1.08);
+.whatsapp-float-round:hover {
+  transform: scale(1.12);
   background-color: #128C7E !important;
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6) !important;
+}
+
+@keyframes whatsapp-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.65), 0 8px 25px rgba(37, 211, 102, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(37, 211, 102, 0), 0 8px 25px rgba(37, 211, 102, 0.45);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), 0 8px 25px rgba(37, 211, 102, 0.45);
+  }
 }
 
 /* Square FAQ Accordion */
 .faq-item {
-  background-color: var(--bg-card);
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
   border-radius: 0px !important;
   margin-bottom: 1rem;
   box-shadow: var(--shadow-sm);
@@ -323,6 +338,7 @@ button, input, select, textarea {
 
 .faq-item:hover {
   box-shadow: var(--shadow-md);
+  background-color: rgba(255, 255, 255, 0.98);
 }
 
 .faq-trigger {
@@ -352,7 +368,7 @@ button, input, select, textarea {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-subtle);
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
   background: var(--text-light);

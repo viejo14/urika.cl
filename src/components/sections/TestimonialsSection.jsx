@@ -7,7 +7,7 @@ import { CleanCard } from '../common/CleanCard';
 
 export function TestimonialsSection() {
   return (
-    <section className="section-padding" style={{ backgroundColor: 'rgba(248, 250, 252, 0.9)' }}>
+    <section className="section-padding">
       <div className="container">
         
         {/* Header with official Google logo provided by user */}
