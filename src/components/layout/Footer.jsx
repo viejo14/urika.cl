@@ -69,9 +69,56 @@ export function Footer() {
 
         </div>
 
-        <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '1.8rem', textAlign: 'center', fontSize: '0.85rem', color: '#64748B' }}>
-          © {new Date().getFullYear()} Escuela de Conductores Urika Puerto Montt (urika.cl). Todos los derechos reservados. Diseñado para Máxima Eficiencia SEO & Performance.
+        {/* Bottom Bar with Syrtix.com Developer Credit */}
+        <div style={{
+          borderTop: '1px solid rgba(255,255,255,0.08)',
+          paddingTop: '1.8rem',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: '1.2rem',
+          fontSize: '0.85rem',
+          color: '#64748B'
+        }}>
+          <div>
+            © {new Date().getFullYear()} Escuela de Conductores Urika Puerto Montt (urika.cl). Todos los derechos reservados.
+          </div>
+
+          {/* Syrtix.com Developer Branding Badge */}
+          <a
+            href="https://syrtix.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.6rem',
+              color: '#94A3B8',
+              transition: 'all 0.2s ease',
+              textDecoration: 'none'
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = '#FFFFFF')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
+          >
+            <span>Desarrollado por</span>
+            <div style={{
+              backgroundColor: '#FFFFFF',
+              padding: '4px 10px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
+            }}>
+              <img
+                src="/images/syrtix-logo.png"
+                alt="Logo Syrtix.com"
+                style={{ height: '22px', width: 'auto', objectFit: 'contain' }}
+              />
+            </div>
+          </a>
         </div>
+
       </div>
     </footer>
   );
