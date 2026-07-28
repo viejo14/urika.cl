@@ -65,10 +65,10 @@ export function HeroSection({ onOpenBooking }) {
   const slide = HERO_FULLSCREEN_SLIDES[currentSlide];
 
   return (
-    <section style={{
+    <section className="hero-responsive-wrapper" style={{
       position: 'relative',
       width: '100%',
-      minHeight: 'calc(100vh - 85px)',
+      minHeight: 'calc(100vh - 75px)',
       display: 'flex',
       alignItems: 'center',
       overflow: 'hidden',
@@ -109,23 +109,23 @@ export function HeroSection({ onOpenBooking }) {
           left: 0,
           width: '100%',
           height: '100%',
-          background: 'linear-gradient(90deg, rgba(15, 23, 42, 0.94) 0%, rgba(15, 23, 42, 0.8) 55%, rgba(15, 23, 42, 0.55) 100%)',
+          background: 'linear-gradient(90deg, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.84) 60%, rgba(15, 23, 42, 0.65) 100%)',
           zIndex: 2
         }} />
       </div>
 
       {/* Clean Non-Invasive Text Container */}
-      <div className="container" style={{ position: 'relative', zIndex: 10, padding: '4rem 1.5rem' }}>
-        <div style={{ maxWidth: '780px' }}>
+      <div className="container hero-content-container" style={{ position: 'relative', zIndex: 10, padding: '3.5rem 1.5rem' }}>
+        <div style={{ maxWidth: '760px' }}>
           
           <motion.div
             key={`slide-badge-${slide.id}`}
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            style={{ marginBottom: '1.4rem' }}
+            style={{ marginBottom: '1.2rem' }}
           >
-            <Badge variant="green" style={{ backgroundColor: 'rgba(16, 185, 129, 0.2)', color: '#34D399', fontSize: '0.88rem', padding: '0.45rem 1.1rem' }}>
+            <Badge variant="green" style={{ backgroundColor: 'rgba(16, 185, 129, 0.2)', color: '#34D399', fontSize: 'clamp(0.78rem, 2.5vw, 0.88rem)', padding: '0.4rem 1rem' }}>
               {slide.tag}
             </Badge>
           </motion.div>
@@ -135,7 +135,14 @@ export function HeroSection({ onOpenBooking }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            style={{ fontSize: '3.8rem', marginBottom: '1.4rem', color: '#FFFFFF', fontWeight: '800', lineHeight: 1.1, letterSpacing: '-0.03em' }}
+            style={{
+              fontSize: 'clamp(1.9rem, 5.2vw, 3.6rem)',
+              marginBottom: '1.2rem',
+              color: '#FFFFFF',
+              fontWeight: '800',
+              lineHeight: 1.15,
+              letterSpacing: '-0.02em'
+            }}
           >
             {slide.title}
           </motion.h1>
@@ -145,7 +152,13 @@ export function HeroSection({ onOpenBooking }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            style={{ fontSize: '1.25rem', color: '#CBD5E1', marginBottom: '2.8rem', maxWidth: '640px', lineHeight: 1.7 }}
+            style={{
+              fontSize: 'clamp(0.95rem, 2.8vw, 1.2rem)',
+              color: '#CBD5E1',
+              marginBottom: '2.2rem',
+              maxWidth: '620px',
+              lineHeight: 1.6
+            }}
           >
             {slide.subtitle}
           </motion.p>
@@ -154,46 +167,48 @@ export function HeroSection({ onOpenBooking }) {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            style={{ display: 'flex', gap: '1.2rem', flexWrap: 'wrap', marginBottom: '3.5rem', alignItems: 'center' }}
+            className="hero-buttons-wrapper"
+            style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '2.8rem', alignItems: 'center' }}
           >
-            <Button variant="primary" onClick={() => onOpenBooking('Curso Completo Licencia Clase B')} style={{ padding: '1.15rem 2.4rem', fontSize: '1.05rem' }}>
+            <Button variant="primary" onClick={() => onOpenBooking('Curso Completo Licencia Clase B')} className="hero-btn-primary" style={{ padding: '1rem 2.2rem', fontSize: '1rem' }}>
               Inscribirme Ahora <ArrowRight size={18} />
             </Button>
-            <a href="#cursos">
-              <Button variant="secondary" style={{ backgroundColor: 'rgba(255, 255, 255, 0.12)', color: '#FFFFFF', padding: '1.15rem 2.4rem', fontSize: '1.05rem' }}>
+            <a href="#cursos" className="hero-btn-secondary-link">
+              <Button variant="secondary" style={{ backgroundColor: 'rgba(255, 255, 255, 0.12)', color: '#FFFFFF', padding: '1rem 2.2rem', fontSize: '1rem' }}>
                 Ver Todos los Cursos
               </Button>
             </a>
           </motion.div>
 
-          {/* Clean Trust Indicators Bar */}
+          {/* Clean Responsive Trust Indicators Bar */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            style={{ display: 'flex', alignItems: 'center', gap: '2.5rem', borderTop: '1px solid rgba(255, 255, 255, 0.15)', paddingTop: '1.8rem', flexWrap: 'wrap' }}
+            className="hero-trust-bar"
+            style={{ display: 'flex', alignItems: 'center', gap: '2rem', borderTop: '1px solid rgba(255, 255, 255, 0.15)', paddingTop: '1.5rem', flexWrap: 'wrap' }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-              <CheckCircle size={20} color="#34D399" />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <CheckCircle size={18} color="#34D399" />
               <div>
-                <span style={{ display: 'block', fontWeight: '700', fontSize: '0.95rem', color: '#FFFFFF' }}>98% Aprobación</span>
-                <span style={{ fontSize: '0.8rem', color: '#94A3B8' }}>Examen Municipal</span>
+                <span style={{ display: 'block', fontWeight: '700', fontSize: '0.88rem', color: '#FFFFFF' }}>98% Aprobación</span>
+                <span style={{ fontSize: '0.75rem', color: '#94A3B8' }}>Examen Municipal</span>
               </div>
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-              <ShieldCheck size={20} color="#38BDF8" />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <ShieldCheck size={18} color="#38BDF8" />
               <div>
-                <span style={{ display: 'block', fontWeight: '700', fontSize: '0.95rem', color: '#FFFFFF' }}>Doble Comando</span>
-                <span style={{ fontSize: '0.8rem', color: '#94A3B8' }}>Seguridad Total</span>
+                <span style={{ display: 'block', fontWeight: '700', fontSize: '0.88rem', color: '#FFFFFF' }}>Doble Comando</span>
+                <span style={{ fontSize: '0.75rem', color: '#94A3B8' }}>Seguridad Total</span>
               </div>
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-              <MapPin size={20} color="#F59E0B" />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <MapPin size={18} color="#F59E0B" />
               <div>
-                <span style={{ display: 'block', fontWeight: '700', fontSize: '0.95rem', color: '#FFFFFF' }}>Puerto Montt</span>
-                <span style={{ fontSize: '0.8rem', color: '#94A3B8' }}>Av. Los Notros #1227</span>
+                <span style={{ display: 'block', fontWeight: '700', fontSize: '0.88rem', color: '#FFFFFF' }}>Puerto Montt</span>
+                <span style={{ fontSize: '0.75rem', color: '#94A3B8' }}>Av. Los Notros #1227</span>
               </div>
             </div>
           </motion.div>
@@ -201,63 +216,31 @@ export function HeroSection({ onOpenBooking }) {
         </div>
       </div>
 
-      {/* Fullscreen Slider Navigation Controls */}
+      {/* Responsive Slider Navigation Controls */}
       <button
         onClick={prevSlide}
-        style={{
-          position: 'absolute',
-          top: '50%',
-          left: '1.5rem',
-          transform: 'translateY(-50%)',
-          backgroundColor: 'rgba(15, 23, 42, 0.75)',
-          color: '#FFFFFF',
-          width: '48px',
-          height: '48px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          cursor: 'pointer',
-          zIndex: 20,
-          transition: 'var(--transition-fast)',
-          border: '1px solid rgba(255, 255, 255, 0.2)'
-        }}
+        className="hero-slider-nav-btn hero-slider-prev"
         aria-label="Slide anterior"
       >
-        <ChevronLeft size={24} />
+        <ChevronLeft size={22} />
       </button>
 
       <button
         onClick={nextSlide}
-        style={{
-          position: 'absolute',
-          top: '50%',
-          right: '1.5rem',
-          transform: 'translateY(-50%)',
-          backgroundColor: 'rgba(15, 23, 42, 0.75)',
-          color: '#FFFFFF',
-          width: '48px',
-          height: '48px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          cursor: 'pointer',
-          zIndex: 20,
-          transition: 'var(--transition-fast)',
-          border: '1px solid rgba(255, 255, 255, 0.2)'
-        }}
+        className="hero-slider-nav-btn hero-slider-next"
         aria-label="Slide siguiente"
       >
-        <ChevronRight size={24} />
+        <ChevronRight size={22} />
       </button>
 
       {/* Fullscreen Slider Progress Dots */}
       <div style={{
         position: 'absolute',
-        bottom: '2rem',
+        bottom: '1.5rem',
         left: '50%',
         transform: 'translateX(-50%)',
         display: 'flex',
-        gap: '0.6rem',
+        gap: '0.5rem',
         zIndex: 20
       }}>
         {HERO_FULLSCREEN_SLIDES.map((s, idx) => (
@@ -265,11 +248,13 @@ export function HeroSection({ onOpenBooking }) {
             key={s.id}
             onClick={() => setCurrentSlide(idx)}
             style={{
-              width: currentSlide === idx ? '36px' : '10px',
-              height: '8px',
+              width: currentSlide === idx ? '32px' : '8px',
+              height: '6px',
               backgroundColor: currentSlide === idx ? '#FFFFFF' : 'rgba(255, 255, 255, 0.35)',
               transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              border: 'none',
+              padding: 0
             }}
             aria-label={`Ir a foto ${idx + 1}`}
           />
