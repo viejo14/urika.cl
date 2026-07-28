@@ -17,7 +17,7 @@ const HERO_FULLSCREEN_SLIDES = [
     image: '/images/Img_urika_psicotecnico.webp',
     title: 'Simulador Psicotécnico de Gabinete Sensométrico',
     subtitle: 'Practica con reactímetro, puntería y palancograma antes de rendir el examen médico municipal con máxima confianza.',
-    tag: 'Simulador Examen Médico'
+    tag: 'Simulador Psicotécnico Sensométrico'
   },
   {
     id: 3,
