@@ -69,10 +69,10 @@ export function SocialFeedSection() {
             </Badge>
           </div>
           <h2 style={{ fontSize: '2.4rem', color: 'var(--primary-dark)', marginBottom: '0.6rem' }}>
-            Publicaciones en Vivo en Facebook e Instagram
+            Síguenos en Nuestras Redes Sociales
           </h2>
           <p style={{ color: 'var(--text-muted)' }}>
-            Contenido oficial, convocatorias a cursos y publicaciones de nuestros alumnos en Puerto Montt.
+            Revisa nuestro contenido oficial, fechas de inicio de cursos y novedades publicadas en Facebook e Instagram.
           </p>
         </motion.div>
 
