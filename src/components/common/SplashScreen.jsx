@@ -36,43 +36,29 @@ export function SplashScreen({ onComplete }) {
             overflow: 'hidden'
           }}
         >
-          {/* Subtle Watermark Hummingbird Figure */}
+          {/* Main Hummingbird Background Image Prominently Displayed in Center */}
           <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
+            initial={{ scale: 0.85, opacity: 0 }}
             animate={{
-              scale: [0.9, 1.04, 1],
-              opacity: [0, 0.12, 0.1]
+              scale: [0.85, 1.05, 1],
+              opacity: [0, 0.95, 0.85]
             }}
-            transition={{ duration: 2.5, ease: "easeInOut" }}
+            transition={{ duration: 2.2, ease: "easeInOut" }}
             style={{
-              position: 'absolute',
-              width: '500px',
-              height: '500px',
+              width: '420px',
+              height: '320px',
               backgroundImage: "url('/images/img_fondo.png')",
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center',
+              marginBottom: '1rem',
               pointerEvents: 'none'
             }}
           />
 
-          {/* Minimalist Corporate Emblem & Text */}
+          {/* Minimalist Corporate Typography Under Background Image */}
           <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', padding: '0 1.5rem' }}>
             
-            {/* Logo Emblem */}
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0, y: -15 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              style={{ marginBottom: '1.2rem', display: 'flex', justifyContent: 'center' }}
-            >
-              <img
-                src="/urika-logo.png"
-                alt="Logo Escuela Urika"
-                style={{ height: '90px', objectFit: 'contain' }}
-              />
-            </motion.div>
-
             {/* Clean Minimalist Title: URIKA */}
             <motion.h1
               initial={{ opacity: 0, y: 15 }}
@@ -80,11 +66,11 @@ export function SplashScreen({ onComplete }) {
               transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               style={{
                 fontFamily: 'var(--font-heading)',
-                fontSize: '3.5rem',
+                fontSize: '3.6rem',
                 fontWeight: '800',
                 color: '#0F172A',
                 textTransform: 'uppercase',
-                letterSpacing: '0.1em',
+                letterSpacing: '0.12em',
                 lineHeight: 1,
                 marginBottom: '0.5rem'
               }}
@@ -102,7 +88,7 @@ export function SplashScreen({ onComplete }) {
                 fontSize: '1.1rem',
                 color: '#0284C7',
                 fontWeight: '600',
-                letterSpacing: '0.25em',
+                letterSpacing: '0.28em',
                 textTransform: 'uppercase'
               }}
             >
@@ -112,8 +98,8 @@ export function SplashScreen({ onComplete }) {
             {/* Minimalist Accent Line Loader */}
             <motion.div
               initial={{ width: 0, opacity: 0 }}
-              animate={{ width: '160px', opacity: 1 }}
-              transition={{ duration: 1.8, delay: 0.4, ease: "easeInOut" }}
+              animate={{ width: '140px', opacity: 1 }}
+              transition={{ duration: 1.6, delay: 0.4, ease: "easeInOut" }}
               style={{
                 height: '2px',
                 backgroundColor: '#0284C7',
