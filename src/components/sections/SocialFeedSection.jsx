@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Heart, MessageCircle } from 'lucide-react';
 import { OFFICIAL_SOCIAL_LINKS } from '../../data/socialData';
 import { Badge } from '../common/Badge';
 import { CleanCard } from '../common/CleanCard';
@@ -19,12 +19,43 @@ const FacebookIcon = () => (
   </svg>
 );
 
+const INSTAGRAM_POST_PREVIEWS = [
+  {
+    id: 1,
+    image: '/images/flota_urika.webp',
+    caption: '¡Nuestra flota doble comando lista en Puerto Montt!',
+    likes: 142,
+    comments: 18
+  },
+  {
+    id: 2,
+    image: '/images/Img_urika_psicotecnico.webp',
+    caption: 'Ensayos con gabinete sensométrico para tu examen médico.',
+    likes: 98,
+    comments: 12
+  },
+  {
+    id: 3,
+    image: '/images/urika_tienda.webp',
+    caption: 'Visítanos en Av. Los Notros #1227, Puerto Montt.',
+    likes: 215,
+    comments: 24
+  },
+  {
+    id: 4,
+    image: '/images/img_urika_presentacion.webp',
+    caption: 'Clases teóricas y preparación oficial Conaset.',
+    likes: 186,
+    comments: 15
+  }
+];
+
 export function SocialFeedSection() {
   return (
     <section className="section-padding">
       <div className="container">
         
-        {/* Header without redundant top buttons */}
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -41,7 +72,7 @@ export function SocialFeedSection() {
             Publicaciones en Vivo en Facebook e Instagram
           </h2>
           <p style={{ color: 'var(--text-muted)' }}>
-            Contenido oficial, convocatorias a cursos y experiencias de nuestros alumnos licenciados en Puerto Montt.
+            Contenido oficial, convocatorias a cursos y publicaciones de nuestros alumnos en Puerto Montt.
           </p>
         </motion.div>
 
@@ -65,7 +96,7 @@ export function SocialFeedSection() {
               </div>
 
               <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
-                Publicaciones diarias, fechas de inicio y eventos oficiales publicados en nuestra fan page de Facebook:
+                Publicaciones diarias, fechas de inicio y afiches promocionales en Facebook:
               </p>
 
               {/* Embedded Facebook Plugin Frame */}
@@ -96,7 +127,7 @@ export function SocialFeedSection() {
             </CleanCard>
           </motion.div>
 
-          {/* Official Instagram Profile Showcase Embed */}
+          {/* Official Instagram Profile Visual Grid Showcase */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -113,41 +144,95 @@ export function SocialFeedSection() {
               </div>
 
               <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
-                Revisa fotos de nuestros egresados con su licencia y Reels con tips para el examen municipal:
+                Últimas publicaciones y fotos de alumnos licenciados en Instagram:
               </p>
 
-              {/* Instagram Card Showcase */}
-              <div style={{ flex: 1, backgroundColor: 'rgba(248, 250, 252, 0.8)', padding: '2rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-                <div style={{ width: '80px', height: '80px', backgroundColor: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.2rem', boxShadow: 'var(--shadow-sm)' }}>
-                  <img
-                    src="/urika-logo.png"
-                    alt="Logo Urika Instagram"
-                    style={{ height: '50px', objectFit: 'contain' }}
-                  />
+              {/* Instagram Visual Post Grid */}
+              <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.8rem' }}>
+                  {INSTAGRAM_POST_PREVIEWS.map((post) => (
+                    <a
+                      key={post.id}
+                      href={OFFICIAL_SOCIAL_LINKS.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        position: 'relative',
+                        height: '190px',
+                        overflow: 'hidden',
+                        backgroundColor: 'var(--primary-dark)',
+                        display: 'block'
+                      }}
+                    >
+                      <img
+                        src={post.image}
+                        alt={post.caption}
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          transition: 'transform 0.4s ease'
+                        }}
+                      />
+                      {/* Hover Overlay with Likes & Comments */}
+                      <div style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        backgroundColor: 'rgba(15, 23, 42, 0.75)',
+                        color: '#FFFFFF',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        opacity: 0,
+                        transition: 'opacity 0.3s ease',
+                        padding: '1rem',
+                        textAlign: 'center'
+                      }}
+                      onMouseEnter={(e) => (e.currentTarget.style.opacity = '1')}
+                      onMouseLeave={(e) => (e.currentTarget.style.opacity = '0')}
+                      >
+                        <p style={{ fontSize: '0.78rem', color: '#FFFFFF', marginBottom: '0.6rem', fontWeight: '500' }}>
+                          {post.caption}
+                        </p>
+                        <div style={{ display: 'flex', gap: '1rem', fontSize: '0.82rem', fontWeight: '700' }}>
+                          <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+                            <Heart size={14} fill="#FF4B4B" color="#FF4B4B" /> {post.likes}
+                          </span>
+                          <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+                            <MessageCircle size={14} color="#FFFFFF" /> {post.comments}
+                          </span>
+                        </div>
+                      </div>
+                    </a>
+                  ))}
                 </div>
 
-                <h3 style={{ fontSize: '1.4rem', color: 'var(--primary-dark)', marginBottom: '0.4rem' }}>
-                  Escuela de Conductores Urika
-                </h3>
-                <span style={{ fontSize: '0.95rem', color: 'var(--accent-corporate)', fontWeight: '600', marginBottom: '1rem' }}>
-                  @urikaec
-                </span>
-
-                <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)', maxWidth: '380px', marginBottom: '1.8rem', lineHeight: 1.6 }}>
-                  📍 Puerto Montt (Av. Los Notros #1227)<br />
-                  🚗 Cursos Licencia Clase B en Chile<br />
-                  🎓 Formando conductores seguros a la primera
-                </p>
-
-                <a
-                  href={OFFICIAL_SOCIAL_LINKS.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary"
-                  style={{ width: '100%', maxWidth: '300px' }}
-                >
-                  <InstagramIcon /> Ver Instagram @urikaec <ArrowUpRight size={16} />
-                </a>
+                <div style={{
+                  backgroundColor: 'rgba(248, 250, 252, 0.9)',
+                  padding: '1rem 1.2rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  marginTop: '0.4rem'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                    <img src="/urika-logo.png" alt="Logo Urika" style={{ height: '28px' }} />
+                    <span style={{ fontSize: '0.88rem', fontWeight: '700', color: 'var(--primary-dark)' }}>@urikaec en Instagram</span>
+                  </div>
+                  <a
+                    href={OFFICIAL_SOCIAL_LINKS.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary"
+                    style={{ padding: '0.55rem 1.1rem', fontSize: '0.82rem' }}
+                  >
+                    Seguir <ArrowUpRight size={14} />
+                  </a>
+                </div>
               </div>
 
               <div style={{ marginTop: '1.2rem', textAlign: 'center' }}>
