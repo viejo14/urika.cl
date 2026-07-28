@@ -1,0 +1,67 @@
+import React from 'react';
+
+export function Footer() {
+  return (
+    <footer style={{ backgroundColor: 'var(--primary-dark)', color: '#94A3B8', paddingTop: '4rem', paddingBottom: '2.5rem' }}>
+      <div className="container">
+        <div className="grid-4" style={{ marginBottom: '3rem' }}>
+          
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.2rem' }}>
+              <img
+                src="/urika-logo.png"
+                alt="Logo Escuela de Conductores Urika"
+                style={{
+                  height: '52px',
+                  width: 'auto',
+                  objectFit: 'contain',
+                  backgroundColor: '#FFFFFF',
+                  padding: '4px 8px',
+                  borderRadius: 0
+                }}
+              />
+            </div>
+            <p style={{ fontSize: '0.88rem', color: '#94A3B8', lineHeight: 1.6 }}>
+              Escuela de Conductores profesional en Puerto Montt. Formación integral para la obtención de Licencia de Conducir Clase B en Chile.
+            </p>
+          </div>
+
+          <div>
+            <h4 style={{ color: '#FFFFFF', fontSize: '1.05rem', marginBottom: '1.2rem' }}>Cursos & Servicios</h4>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.88rem' }}>
+              <li><a href="#cursos" style={{ color: '#CBD5E1' }}>Curso Licencia Clase B</a></li>
+              <li><a href="#cursos" style={{ color: '#CBD5E1' }}>Reforzamiento de Conducción</a></li>
+              <li><a href="#cursos" style={{ color: '#CBD5E1' }}>Simulador Teórico Conaset</a></li>
+              <li><a href="#cursos" style={{ color: '#CBD5E1' }}>Acompañamiento Examen Municipal</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 style={{ color: '#FFFFFF', fontSize: '1.05rem', marginBottom: '1.2rem' }}>Información Legal & SEO</h4>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.88rem' }}>
+              <li><span style={{ color: '#CBD5E1' }}>Acreditación SECTRA / Carabineros</span></li>
+              <li><span style={{ color: '#CBD5E1' }}>Términos y Condiciones</span></li>
+              <li><span style={{ color: '#CBD5E1' }}>Política de Privacidad</span></li>
+              <li><span style={{ color: '#CBD5E1' }}>Escuela de Manejo Puerto Montt</span></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 style={{ color: '#FFFFFF', fontSize: '1.05rem', marginBottom: '1.2rem' }}>Sede Puerto Montt</h4>
+            <p style={{ fontSize: '0.88rem', color: '#CBD5E1', marginBottom: '0.8rem' }}>
+              📍 Av. Los Notros #1227, Puerto Montt.
+            </p>
+            <p style={{ fontSize: '0.88rem', color: '#CBD5E1' }}>
+              📞 Central & WhatsApp: +56 9 5888 7141
+            </p>
+          </div>
+
+        </div>
+
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '1.8rem', textAlign: 'center', fontSize: '0.85rem', color: '#64748B' }}>
+          © {new Date().getFullYear()} Escuela de Conductores Urika Puerto Montt (urika.cl). Todos los derechos reservados. Diseñado para Máxima Eficiencia SEO & Performance.
+        </div>
+      </div>
+    </footer>
+  );
+}

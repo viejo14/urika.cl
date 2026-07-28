@@ -1,0 +1,363 @@
+/* ==========================================================================
+   URIKA - ESCUELA DE CONDUCTORES PUERTO MONTT
+   Corporate Executive Styling with Custom Background Image & Sharp Square Geometry
+   ========================================================================== */
+
+:root {
+  /* Executive Corporate Palette */
+  --primary-dark: #0F172A;        /* Deep Charcoal Navy */
+  --primary-navy: #1E293B;        /* Slate 800 */
+  --primary-slate: #334155;       /* Slate 700 */
+  
+  /* Corporate Accent */
+  --accent-corporate: #0284C7;    /* Deep Executive Sapphire Blue */
+  --accent-corporate-dark: #0369A1;
+  --accent-corporate-soft: rgba(2, 132, 199, 0.08);
+  
+  /* Status Colors */
+  --accent-success: #059669;      /* Emerald 600 */
+  --accent-success-soft: rgba(5, 150, 105, 0.08);
+  
+  /* Backgrounds */
+  --bg-page: #FFFFFF;
+  --bg-subtle: rgba(248, 250, 252, 0.92);
+  --bg-elevated: rgba(241, 245, 249, 0.95);
+  --bg-card: rgba(255, 255, 255, 0.96);
+  
+  /* Typography Colors */
+  --text-main: #0F172A;           /* Anthracite */
+  --text-muted: #334155;          /* Slate 700 */
+  --text-light: #64748B;          /* Slate 500 */
+  
+  /* Typography Fonts */
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* Ambient Soft Shadows (Zero Borders) */
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 10px 30px -5px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 20px 45px -10px rgba(15, 23, 42, 0.12);
+  --shadow-primary: 0 10px 25px -5px rgba(15, 23, 42, 0.25);
+
+  /* Transitions */
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.2s var(--ease-smooth);
+  --transition-normal: all 0.35s var(--ease-smooth);
+  
+  /* STRICT GEOMETRY RULE: 100% SQUARE CORNERS (0 RADIUS) */
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-pill: 0px;
+  --max-width: 1200px;
+}
+
+/* Reset & Global Scope */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0 !important; /* STRICT RULE: 0 Borders */
+  border-radius: 0px !important; /* STRICT RULE: 100% Sharp Square Geometry */
+  outline: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  /* Background Image Scaled via Contain so the Hummingbird is 100% Visible & Not Cropped */
+  background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(248, 250, 252, 0.92)), url('/images/img_fondo.png') no-repeat right 5% top 120px fixed;
+  background-size: 550px auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--primary-dark);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  background: none;
+  border-radius: 0px !important;
+}
+
+/* Containers */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 15px rgba(15, 23, 42, 0.05);
+}
+
+/* Executive Cards - 100% Sharp Square Corners & 0 Borders */
+.clean-card {
+  background-color: var(--bg-card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 0px !important;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+  padding: 2.5rem;
+  position: relative;
+}
+
+.clean-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.clean-card-subtle {
+  background-color: var(--bg-subtle);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 0px !important;
+  padding: 2.5rem;
+  transition: var(--transition-normal);
+}
+
+.clean-card-subtle:hover {
+  background-color: var(--bg-elevated);
+  transform: translateY(-2px);
+}
+
+/* Executive Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background-color: var(--primary-dark);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.98rem;
+  padding: 0.95rem 1.8rem;
+  border-radius: 0px !important;
+  box-shadow: var(--shadow-primary);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  text-align: center;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-navy);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px -5px rgba(15, 23, 42, 0.35);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background-color: var(--bg-elevated);
+  color: var(--primary-dark);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.98rem;
+  padding: 0.95rem 1.8rem;
+  border-radius: 0px !important;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.btn-secondary:hover {
+  background-color: #E2E8F0;
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: var(--primary-dark);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.2rem;
+  border-radius: 0px !important;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.btn-ghost:hover {
+  background-color: var(--bg-subtle);
+}
+
+/* Executive Badges */
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 0px !important;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.badge-slate, .badge-gold, .badge-orange, .badge-violet {
+  background-color: var(--bg-elevated);
+  color: var(--primary-dark);
+}
+
+.badge-corporate {
+  background-color: var(--accent-corporate-soft);
+  color: var(--accent-corporate-dark);
+}
+
+.badge-green {
+  background-color: var(--accent-success-soft);
+  color: var(--accent-success);
+}
+
+/* Sections */
+.section-padding {
+  padding: 6rem 0;
+}
+
+.section-bg-subtle {
+  background-color: rgba(248, 250, 252, 0.85);
+  backdrop-filter: blur(6px);
+}
+
+/* Grids */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .grid-3, .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr;
+  }
+  .section-padding {
+    padding: 4rem 0;
+  }
+}
+
+/* Official WhatsApp Floating Widget */
+.whatsapp-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #25D366 !important;
+  color: #FFFFFF !important;
+  width: 58px;
+  height: 58px;
+  border-radius: 0px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45) !important;
+  z-index: 999;
+  transition: var(--transition-fast);
+  cursor: pointer;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.08);
+  background-color: #128C7E !important;
+}
+
+/* Square FAQ Accordion */
+.faq-item {
+  background-color: var(--bg-card);
+  border-radius: 0px !important;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: var(--transition-fast);
+}
+
+.faq-item:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.faq-trigger {
+  width: 100%;
+  padding: 1.4rem 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  cursor: pointer;
+  border-radius: 0px !important;
+}
+
+.faq-content {
+  padding: 0 1.8rem 1.5rem 1.8rem;
+  color: var(--text-muted);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-subtle);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--text-light);
+  border-radius: 0px !important;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-slate);
+}
