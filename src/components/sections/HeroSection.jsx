@@ -38,6 +38,14 @@ const HERO_FULLSCREEN_SLIDES = [
 export function HeroSection({ onOpenBooking }) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  // Preload ALL Hero Slide Images Immediately on Mount for Instant 0ms Load
+  useEffect(() => {
+    HERO_FULLSCREEN_SLIDES.forEach((slide) => {
+      const img = new Image();
+      img.src = slide.image;
+    });
+  }, []);
+
   // Auto-play Fullscreen Hero Slider Every 5.5 Seconds
   useEffect(() => {
     const timer = setInterval(() => {
@@ -67,6 +75,13 @@ export function HeroSection({ onOpenBooking }) {
       backgroundColor: 'var(--primary-dark)'
     }}>
       
+      {/* Preload Hidden Images in DOM for Instant Caching */}
+      <div style={{ display: 'none' }}>
+        {HERO_FULLSCREEN_SLIDES.map((s) => (
+          <img key={`preload-${s.id}`} src={s.image} alt="Preload slide" />
+        ))}
+      </div>
+
       {/* Full-Screen Background Image Slider */}
       <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}>
         <AnimatePresence mode="wait">
@@ -87,7 +102,7 @@ export function HeroSection({ onOpenBooking }) {
           />
         </AnimatePresence>
 
-        {/* Clean Executive Translucent Dark Gradient Overlay for Maximum Legibility */}
+        {/* Clean Executive Translucent Dark Gradient Overlay */}
         <div style={{
           position: 'absolute',
           top: 0,
@@ -99,7 +114,7 @@ export function HeroSection({ onOpenBooking }) {
         }} />
       </div>
 
-      {/* Clean Non-Invasive Text Container (No Bulky White Cards) */}
+      {/* Clean Non-Invasive Text Container */}
       <div className="container" style={{ position: 'relative', zIndex: 10, padding: '4rem 1.5rem' }}>
         <div style={{ maxWidth: '780px' }}>
           
