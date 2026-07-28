@@ -1,5 +1,4 @@
 import React from 'react';
-import { ShieldCheck, FileText } from 'lucide-react';
 import { STATS_DATA } from '../../data/statsData';
 
 export function StatsSection() {
@@ -7,7 +6,7 @@ export function StatsSection() {
     <section style={{ backgroundColor: 'var(--primary-dark)', color: '#FFFFFF', padding: '3.5rem 0' }}>
       <div className="container">
         
-        {/* Institutional Accreditation Trust Bar with Official MTT Chile Logo */}
+        {/* Institutional Accreditation Trust Bar with Perfectly Symmetrical Logos */}
         <div style={{
           borderBottom: '1px solid rgba(255, 255, 255, 0.12)',
           paddingBottom: '2.5rem',
@@ -26,21 +25,23 @@ export function StatsSection() {
             </span>
           </div>
 
-          <div className="grid-3" style={{ gap: '1.5rem', alignItems: 'center' }}>
+          <div className="grid-3" style={{ gap: '1.5rem', alignItems: 'stretch' }}>
             
-            {/* MTT - Ministerio de Transportes y Telecomunicaciones con Logo Oficial */}
+            {/* MTT - Ministerio de Transportes y Telecomunicaciones */}
             <div style={{
               backgroundColor: 'rgba(255, 255, 255, 0.05)',
               padding: '1.2rem 1.4rem',
               display: 'flex',
               alignItems: 'center',
               gap: '1rem',
-              borderLeft: '3px solid #0284C7'
+              borderLeft: '3px solid #0284C7',
+              height: '100%'
             }}>
               <div style={{
-                height: '46px',
+                width: '120px',
+                height: '52px',
                 backgroundColor: '#FFFFFF',
-                padding: '4px 8px',
+                padding: '6px 10px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -48,8 +49,8 @@ export function StatsSection() {
               }}>
                 <img
                   src="/images/MttChile-web-768x297.png"
-                  alt="Logo Ministerio de Transportes y Telecomunicaciones Chile"
-                  style={{ height: '36px', objectFit: 'contain' }}
+                  alt="Logo Ministerio de Transportes Chile"
+                  style={{ maxHeight: '38px', maxWidth: '100%', objectFit: 'contain' }}
                 />
               </div>
               <div>
@@ -62,25 +63,31 @@ export function StatsSection() {
               </div>
             </div>
 
-            {/* CONASET */}
+            {/* CONASET con Logo Oficial */}
             <div style={{
               backgroundColor: 'rgba(255, 255, 255, 0.05)',
               padding: '1.2rem 1.4rem',
               display: 'flex',
               alignItems: 'center',
               gap: '1rem',
-              borderLeft: '3px solid #059669'
+              borderLeft: '3px solid #059669',
+              height: '100%'
             }}>
               <div style={{
-                width: '46px',
-                height: '46px',
-                backgroundColor: 'rgba(5, 150, 105, 0.18)',
+                width: '120px',
+                height: '52px',
+                backgroundColor: '#FFFFFF',
+                padding: '6px 10px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 flexShrink: 0
               }}>
-                <FileText size={24} color="#34D399" />
+                <img
+                  src="/images/conaset.webp"
+                  alt="Logo Oficial CONASET Chile"
+                  style={{ maxHeight: '38px', maxWidth: '100%', objectFit: 'contain' }}
+                />
               </div>
               <div>
                 <strong style={{ display: 'block', fontSize: '0.95rem', color: '#FFFFFF' }}>
@@ -92,25 +99,31 @@ export function StatsSection() {
               </div>
             </div>
 
-            {/* Carabineros de Chile */}
+            {/* Carabineros de Chile con Escudo Oficial Símétrico */}
             <div style={{
               backgroundColor: 'rgba(255, 255, 255, 0.05)',
               padding: '1.2rem 1.4rem',
               display: 'flex',
               alignItems: 'center',
               gap: '1rem',
-              borderLeft: '3px solid #F59E0B'
+              borderLeft: '3px solid #F59E0B',
+              height: '100%'
             }}>
               <div style={{
-                width: '46px',
-                height: '46px',
-                backgroundColor: 'rgba(245, 158, 11, 0.18)',
+                width: '120px',
+                height: '52px',
+                backgroundColor: '#FFFFFF',
+                padding: '6px 10px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 flexShrink: 0
               }}>
-                <ShieldCheck size={24} color="#FBBF24" />
+                <img
+                  src="/images/Roundel_of_Carabineros_de_Chile.svg.webp"
+                  alt="Escudo Oficial Carabineros de Chile"
+                  style={{ maxHeight: '38px', maxWidth: '100%', objectFit: 'contain' }}
+                />
               </div>
               <div>
                 <strong style={{ display: 'block', fontSize: '0.95rem', color: '#FFFFFF' }}>

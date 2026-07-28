@@ -7,88 +7,114 @@ import { Badge } from '../common/Badge';
 export function CourseCatalog({ onOpenBooking }) {
   const [activeTab, setActiveTab] = useState('all');
 
-  const filteredCourses = activeTab === 'all' 
-    ? COURSES_DATA 
-    : COURSES_DATA.filter(c => c.id === activeTab);
+  const filteredCourses = COURSES_DATA.filter((course) => {
+    if (activeTab === 'all') return true;
+    return course.category === activeTab;
+  });
 
   return (
-    <section id="cursos" className="section-padding section-bg-subtle">
+    <section id="cursos" className="section-padding">
       <div className="container">
         
-        {/* Header with entrance animation */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto 3rem auto' }}
-        >
+        {/* Header */}
+        <div style={{ textAlign: 'center', maxWidth: '650px', margin: '0 auto 3rem auto' }}>
           <div style={{ marginBottom: '1rem' }}>
             <Badge variant="corporate">
               Programas de Conducción
             </Badge>
           </div>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'var(--primary-dark)' }}>
+          <h2 style={{ fontSize: '2.4rem', marginBottom: '1rem', color: 'var(--primary-dark)' }}>
             Nuestros Cursos de Conducción en Chile
           </h2>
           <p style={{ color: 'var(--text-muted)' }}>
             Programas estructurados para cada nivel de experiencia con acompañamiento personalizado y 0 bordes.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Smooth Tab Transition Controls */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', marginBottom: '3.5rem', flexWrap: 'wrap' }}
-        >
-          {[
-            { id: 'all', label: 'Todos los Cursos' },
-            { id: 'claseB', label: 'Licencia Clase B' },
-            { id: 'reforzamiento', label: 'Reforzamiento' },
-            { id: 'teorico', label: 'Teórico Intensivo' }
-          ].map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              style={{
-                position: 'relative',
-                padding: '0.85rem 1.6rem',
-                fontSize: '0.92rem',
-                fontWeight: '600',
-                color: activeTab === tab.id ? '#FFFFFF' : 'var(--primary-dark)',
-                backgroundColor: activeTab === tab.id ? 'var(--primary-dark)' : 'var(--bg-card)',
-                boxShadow: activeTab === tab.id ? 'var(--shadow-primary)' : 'var(--shadow-sm)',
-                cursor: 'pointer',
-                transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
-                border: 0,
-                borderRadius: 0
-              }}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </motion.div>
+        {/* Tab Filters */}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '0.8rem', marginBottom: '3.5rem', flexWrap: 'wrap' }}>
+          <button
+            onClick={() => setActiveTab('all')}
+            className={activeTab === 'all' ? 'btn-primary' : 'btn-secondary'}
+            style={{ padding: '0.75rem 1.4rem', fontSize: '0.9rem' }}
+          >
+            Todos los Cursos
+          </button>
+          <button
+            onClick={() => setActiveTab('clase-b')}
+            className={activeTab === 'clase-b' ? 'btn-primary' : 'btn-secondary'}
+            style={{ padding: '0.75rem 1.4rem', fontSize: '0.9rem' }}
+          >
+            Licencia Clase B
+          </button>
+          <button
+            onClick={() => setActiveTab('reforzamiento')}
+            className={activeTab === 'reforzamiento' ? 'btn-primary' : 'btn-secondary'}
+            style={{ padding: '0.75rem 1.4rem', fontSize: '0.9rem' }}
+          >
+            Reforzamiento
+          </button>
+          <button
+            onClick={() => setActiveTab('teorico')}
+            className={activeTab === 'teorico' ? 'btn-primary' : 'btn-secondary'}
+            style={{ padding: '0.75rem 1.4rem', fontSize: '0.9rem' }}
+          >
+            Teórico Intensivo
+          </button>
+        </div>
 
-        {/* Animated Grid for Courses */}
-        <motion.div layout className="grid-3">
-          <AnimatePresence mode="wait">
-            {filteredCourses.map((course, idx) => (
+        {/* Course Cards Grid */}
+        <motion.div layout className="grid-3" style={{ alignItems: 'stretch' }}>
+          <AnimatePresence>
+            {filteredCourses.map((course) => (
               <motion.div
                 key={course.id}
                 layout
-                initial={{ opacity: 0, y: 30, scale: 0.96 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -20, scale: 0.96 }}
-                transition={{ duration: 0.45, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.35 }}
+                style={{ height: '100%' }}
               >
                 <CourseCard course={course} onOpenBooking={onOpenBooking} />
               </motion.div>
             ))}
           </AnimatePresence>
         </motion.div>
+
+        {/* Official Payment Methods Banner */}
+        <div style={{
+          marginTop: '4rem',
+          backgroundColor: 'rgba(255, 255, 255, 0.92)',
+          backdropFilter: 'blur(10px)',
+          padding: '2rem 2.5rem',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          gap: '2rem',
+          boxShadow: 'var(--shadow-sm)'
+        }}>
+          <div>
+            <span style={{ fontSize: '0.82rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--accent-corporate)', fontWeight: '700', display: 'block', marginBottom: '0.3rem' }}>
+              Facilidad de Pago Garantizada
+            </span>
+            <h3 style={{ fontSize: '1.25rem', color: 'var(--primary-dark)', marginBottom: '0.2rem' }}>
+              Aceptamos Todos los Medios de Pago & Hasta 3 Cuotas Sin Interés
+            </h3>
+            <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+              Paga tu curso de manera segura vía Webpay, tarjetas de débito, crédito o transferencia bancaria directa.
+            </p>
+          </div>
+
+          <div style={{ backgroundColor: '#FFFFFF', padding: '8px 16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <img
+              src="/images/todo_medio_pago.png"
+              alt="Logos Todos los Medios de Pago Webpay Débito Crédito"
+              style={{ maxHeight: '55px', width: 'auto', objectFit: 'contain' }}
+            />
+          </div>
+        </div>
 
       </div>
     </section>
