@@ -21,9 +21,17 @@ export function Footer() {
                 }}
               />
             </div>
-            <p style={{ fontSize: '0.88rem', color: '#94A3B8', lineHeight: 1.6 }}>
+            <p style={{ fontSize: '0.88rem', color: '#94A3B8', lineHeight: 1.6, marginBottom: '1.2rem' }}>
               Escuela de Conductores profesional en Puerto Montt. Formación integral para la obtención de Licencia de Conducir Clase B en Chile.
             </p>
+            {/* Medios de pago en Footer */}
+            <div style={{ backgroundColor: '#FFFFFF', padding: '6px 12px', display: 'inline-flex', alignItems: 'center' }}>
+              <img
+                src="/images/todo_medio_pago.png"
+                alt="Medios de Pago Aceptados Webpay Débito Crédito"
+                style={{ height: '36px', width: 'auto', objectFit: 'contain' }}
+              />
+            </div>
           </div>
 
           <div>
@@ -40,8 +48,8 @@ export function Footer() {
             <h4 style={{ color: '#FFFFFF', fontSize: '1.05rem', marginBottom: '1.2rem' }}>Información Legal & SEO</h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.88rem' }}>
               <li><span style={{ color: '#CBD5E1' }}>Acreditación SECTRA / Carabineros</span></li>
-              <li><span style={{ color: '#CBD5E1' }}>Términos y Condiciones</span></li>
-              <li><span style={{ color: '#CBD5E1' }}>Política de Privacidad</span></li>
+              <li><span style={{ color: '#CBD5E1' }}>Resolución Ministerio de Transportes</span></li>
+              <li><span style={{ color: '#CBD5E1' }}>Normativa Oficial CONASET</span></li>
               <li><span style={{ color: '#CBD5E1' }}>Escuela de Manejo Puerto Montt</span></li>
             </ul>
           </div>
@@ -51,9 +59,12 @@ export function Footer() {
             <p style={{ fontSize: '0.88rem', color: '#CBD5E1', marginBottom: '0.8rem' }}>
               📍 Av. Los Notros #1227, Puerto Montt.
             </p>
-            <p style={{ fontSize: '0.88rem', color: '#CBD5E1' }}>
+            <p style={{ fontSize: '0.88rem', color: '#CBD5E1', marginBottom: '1rem' }}>
               📞 Central & WhatsApp: +56 9 5888 7141
             </p>
+            <span style={{ fontSize: '0.82rem', color: '#38BDF8', fontWeight: '600' }}>
+              ✔ 3 Cuotas Sin Interés Disponibles
+            </span>
           </div>
 
         </div>
