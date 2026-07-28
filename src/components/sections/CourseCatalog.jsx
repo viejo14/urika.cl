@@ -27,7 +27,7 @@ export function CourseCatalog({ onOpenBooking }) {
             Nuestros Cursos de Conducción en Chile
           </h2>
           <p style={{ color: 'var(--text-muted)' }}>
-            Programas estructurados para cada nivel de experiencia con acompañamiento personalizado y 0 bordes.
+            Programas estructurados para cada nivel de experiencia con acompañamiento personalizado e inclusión del vehículo para tu examen municipal.
           </p>
         </div>
 
