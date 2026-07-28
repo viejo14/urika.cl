@@ -107,14 +107,18 @@ export function Footer() {
               padding: '4px 10px',
               display: 'flex',
               alignItems: 'center',
+              gap: '0.4rem',
               justifyContent: 'center',
               boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
             }}>
               <img
                 src="/images/syrtix-logo.png"
-                alt="Logo Syrtix.com"
+                alt="Logo Syrtix.com Empresa de Software"
                 style={{ height: '22px', width: 'auto', objectFit: 'contain' }}
               />
+              <span style={{ fontSize: '0.78rem', fontWeight: '700', color: '#0F172A' }}>
+                syrtix.com <span style={{ fontWeight: '400', color: '#64748B' }}>empresa de software</span>
+              </span>
             </div>
           </a>
         </div>
